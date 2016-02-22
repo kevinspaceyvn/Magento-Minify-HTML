@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * QsoftVietnam - MINIFY HTML
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the The MIT License (MIT)
+ * that is bundled with this package in the file LICENSE.txt.
+ *
+ * @category    QsoftVietnam
+ * @package     QsoftVietnam_MinifyHTML
+ * @copyright   Copyright (c) 2015 QsoftVietnam
+ * @license     The MIT License (MIT)
+ */
+-->
+<config>
+    <modules>
+        <PAJ_MinifyHTML>
+            <version>0.0.2</version>
+        </PAJ_MinifyHTML>
+    </modules>
+    <global>
+        <helpers>
+            <minifyhtml>
+                <class>PAJ_MinifyHTML_Helper</class>
+            </minifyhtml>
+        </helpers>
+        <models>
+            <minifyhtml>
+                <class>PAJ_MinifyHTML_Model</class>
+            </minifyhtml>
+        </models>
+    </global>
+	<frontend>
+		<events>
+			<http_response_send_before>
+				<observers>
+					<http_response_send_before_handler>
+						<type>model</type>
+						<class>minifyhtml/observer</class>
+						<method>alterOutput</method>
+						<args></args>
+					</http_response_send_before_handler>
+				</observers>
+			</http_response_send_before>
+		</events>			
+	</frontend>	
+</config>
